@@ -153,7 +153,6 @@ func Copy(sys *System, batch int) error {
 
 	for {
 		i, err := pull(&sys.Xenia, data)
-		
 		if err != nil {
 			return err
 		}

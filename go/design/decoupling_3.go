@@ -166,14 +166,14 @@ func Copy(ps PullStorer, batch int) error {
 
 	for {
 		i, err := pull(ps, data)
+		if err != nil {
+			return err
+		}
+		
 		if i > 0 {
 			if _, err := store(ps, data[:i]); err != nil {
 				return err
 			}
-		}
-
-		if err != nil {
-			return err
 		}
 	}
 }
